@@ -55,8 +55,8 @@ def load_real_prices():
         prices = get_greek_day_ahead_prices("20240101", "20241231")
         return prices
     except Exception as e:
-        st.warning(f"⚠️ Αδυναμία σύνδεσης με ENTSO-E. Χρήση mock data. ({e})")
-        return generate_mock_prices(hours=8760, base_price=baseload_price)
+        st.error(f"❌ ENTSO-E Error: {e}")
+        return None
 
 
 hourly_prices = load_real_prices()
@@ -160,7 +160,7 @@ try:
     st.write(f"Token found: {secret_test[:8]}...")
 except Exception as e:
     st.error(f"Secret error: {e}")
-    
+
 st.success("✅ Τα δεδομένα αγοράς είναι πραγματικά — ENTSO-E Day-Ahead Prices 2024 (GR)")
 
 
