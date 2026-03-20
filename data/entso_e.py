@@ -10,7 +10,7 @@ def get_greek_day_ahead_prices(start: str, end: str) -> pd.Series:
     """
     Παίρνει ωριαίες day-ahead τιμές για την Ελλάδα (GR zone).
     """
-    API_TOKEN = st.secrets.get("ENTSO_E_TOKEN") or os.environ.get("ENTSO_E_TOKEN")
+    API_TOKEN = st.secrets["ENTSO_E_TOKEN"]
     client = EntsoePandasClient(api_key=API_TOKEN)
     
     start_ts = pd.Timestamp(start, tz="Europe/Athens")
