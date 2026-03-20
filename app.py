@@ -153,14 +153,8 @@ with col5:
             f"{indexation_rate}%",
             f"{degradation_rate}%/year",
         ]
-    }), hide_index=True)
-
-try:
-    secret_test = st.secrets["ENTSO_E_TOKEN"]
-    st.write(f"Token found: {secret_test[:8]}...")
-except Exception as e:
-    st.error(f"Secret error: {e}")
-
+    }), hide_index=True
+    )   
 st.success("✅ Τα δεδομένα αγοράς είναι πραγματικά — ENTSO-E Day-Ahead Prices 2024 (GR)")
 
 
